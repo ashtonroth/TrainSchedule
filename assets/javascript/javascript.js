@@ -61,11 +61,12 @@ var firebaseConfig = {
     console.log(Start);
     console.log(Freq);
   
-    var timeStamp = moment.unix(Start).format('HH:mm');
+    var makeItSnazzy = moment.unix(Start).format('HH:mm');
   
-    var calculateThatTime = moment().diff(moment(makeItSnazzy, 'X'), 'HH:mm');
+    // var calculateThatTime = moment().diff(moment(makeItSnazzy, 'X'), 'HH:mm');
   
-    var countItDown = moment().starOf(calculateThatTime).fromNow();
+    // var countItDown = moment().starOf(calculateThatTime).fromNow();
   
     $('#trainSchedule > tbody').append('<tr><td>' + Name + '</td><td>' + Dest + '</td><td>' + Freq + '</td><td>' + 'fml' + '</td><td>' + 'fml' + '</td></tr>');
   });
+  
