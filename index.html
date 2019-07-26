@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Train Schedule</title>
+  <!--BootStrap 4.0-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--Moment.js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+  <!--StyleSheet-->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!--JumboTron Fluid - to stretch the entire width of the window-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <h1 class="display-3">Train Times <br> On the Go</h1>
+      <!--<p class="lead">Find your Train and Schedule that trip you've been contemplating</p>-->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <!--Form to submit new times into the table-->
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">New Train</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Know when you're leaving</h6>
+        <form>
+          <div class="form-group row">
+            <label for="name-input" class="col-sm-2 col-form-label col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name-input" placeholder="Name this train">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dest-input" class="col-sm-2 col-form-label col-form-label">Destination</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="dest-input"
+                     placeholder="Where is this train going?">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="start-input" class="col-sm-2 col-form-label">Start Time</label>
+            <div class="col-sm-10">
+              <input type="time" step="1" dataformatas="HH:mm" class="form-control" id="start-input"
+                     placeholder="When is this train coming?">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="freq-input" class="col-sm-2 col-form-label col-form-label">Frequency</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="freq-input"
+                     placeholder="How often is this train coming?">
+            </div>
+            <button type="button" class="btn btn-primary" id="add-train-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--Table to hold the results from the form and view related data-->
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-striped" id="trainSchedule">
+          <thread>
+            <tr>
+              <th scope="col">Train Name</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Frequency</th>
+              <th scope="col">Next Arrival Time</th>
+              <th scope="col">CountDown Until Next Arrival</th>
+            </tr>
+          </thread>
+          <tbody>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Firebase script link-->
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+<!--JQuery Script Link-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<!--Ajax script Link even though I do not really need this at the moment-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<!--Bootstrap CDN-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!--JavaScript Logic File-->
+<script rel="JavaScript" src="assets/JavaScript/javascript.js"></script>
+</body>
+</html>
