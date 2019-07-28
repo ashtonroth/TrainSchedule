@@ -6,32 +6,35 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Train Schedule</title>
+  <title>Train Schedule 
+  </title>
   <!--BootStrap 4.0-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!--Moment.js-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
   <!--StyleSheet-->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <!--JumboTron Fluid - to stretch the entire width of the window-->
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="d-flex justify-content-center">
-      <h1 class="display-3">Train Times <br> On the Go</h1>
-      <!--<p class="lead">Find your Train and Schedule that trip you've been contemplating</p>-->
+      <h1 class="display-3">Departure Times</h1>
+      <p class="lead text-right"></p>
     </div>
   </div>
 </div>
 <div class="row">
   <!--Form to submit new times into the table-->
   <div class="col-md-5">
-    <div class="card">
+    <div class="card-transparent">
       <div class="card-body">
         <h4 class="card-title">New Train</h4>
-        <h6 class="card-subtitle mb-2 text-muted">Know when you're leaving</h6>
+        <h6 class="card-subtitle mb-2">Know when you're leaving</h6>
         <form>
           <div class="form-group row">
             <label for="name-input" class="col-sm-2 col-form-label col-form-label">Name</label>
@@ -67,7 +70,7 @@
   </div>
   <!--Table to hold the results from the form and view related data-->
   <div class="col-md-7">
-    <div class="card">
+    <div class="card-transparent">
       <div class="card-body">
         <table class="table table-striped" id="trainSchedule">
           <thread>

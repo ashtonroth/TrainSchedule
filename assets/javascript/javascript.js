@@ -1,4 +1,4 @@
-
+$(document).ready(function(){
 
 var firebaseConfig = {
     apiKey: "AIzaSyCbntqNOv9TNuHW4iYIrN08LV6TfKNj4lc",
@@ -13,9 +13,15 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   console.log(firebase);
   var database = firebase.database();
+  // global variables for bringing in moment
+  var hour = moment().hour();
+  var minute = moment().minutes();
+  var current = moment(hour + ":" + minute, "HH:mm");
+  var current = current.format("hh:mm A")
+  var minAway = 0;
 
 
-
+  $("p").text("The Current Time Is: " + current);
  
   
   $('#add-train-btn').on('click', function (event) {
@@ -24,13 +30,14 @@ var firebaseConfig = {
     var tName = $('#name-input').val().trim();
     var tDest = $('#dest-input').val().trim();
     var tStart = moment($('#start-input').val().trim(), 'HH:mm').format('X');
-    var tFreq = $('#freq-input').val().trim();
+    var tFreq = parseInt$('#freq-input').val().trim();
   
     var newTrain = {
       name: tName,
       dest: tDest,
       start: tStart,
-      freq: tFreq
+      freq: tFreq,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP,
     };
   
     database.ref().push(newTrain);
@@ -51,22 +58,39 @@ var firebaseConfig = {
   database.ref().on('child_added', function (childSnapShot) {
     console.log(childSnapShot.val());
   
-    var Name = childSnapShot.val().name;
-    var Dest = childSnapShot.val().dest;
-    var Start = childSnapShot.val().start;
-    var Freq = childSnapShot.val().freq;
+    // var Name = childSnapShot.val().name;
+    // var Dest = childSnapShot.val().dest;
+    // var Start = childSnapShot.val().start;
+    // var Freq = childSnapShot.val().freq;
   
-    console.log(Name);
-    console.log(Dest);
-    console.log(Start);
-    console.log(Freq);
-  
-    var makeItSnazzy = moment.unix(Start).format('HH:mm');
-  
-    // var calculateThatTime = moment().diff(moment(makeItSnazzy, 'X'), 'HH:mm');
-  
-    // var countItDown = moment().starOf(calculateThatTime).fromNow();
-  
-    $('#trainSchedule > tbody').append('<tr><td>' + Name + '</td><td>' + Dest + '</td><td>' + Freq + '</td><td>' + 'fml' + '</td><td>' + 'fml' + '</td></tr>');
+    var frequency =  childSnapShot.val().freq;
+    var firstTrain = childSnapShot.val().start;
+    var trainName = childSnapShot.val().name;
+    var destination= childSnapShot.val().dest;
+    var firstTrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years");;   
+    var now = moment();
+    var diffTime = moment().diff(moment(firstTrainConverted),"minutes");
+    var tRemainder = diffTime % frequency;
+    var tMinutesTillTrain = frequency - tRemainder;
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    var nextTrain = moment(nextTrain).format("hh:mm A");
+
+   var newRow = $("<tr>").append(
+     $("<td>").text(trainName),
+     $("<td>").text(destination),
+     $("<td>").text(frequency),
+     $("<td>").text(nextTrain),
+     $("<td>").text(tMinutesTillTrain),
+     );
+
+   $(".table > tbody").append(newRow);
+// $('#trainSchedule > tbody').append('<tr><td>' + trainName + '</td><td>' + destination + '</td><td>' + frequency + '</td><td>' + nextTrain + '</td><td>' + tMinutesTillTrain + '</td></tr>');
+});
+
+
+
   });
+  
+
+
   

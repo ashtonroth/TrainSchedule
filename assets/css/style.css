@@ -1,30 +1,80 @@
+/* .jumbotron{
+    background-image: url("../images/train3.jpeg"); 
+ 
+ }  */
+.jumbotron {
+    background: none ; 
+    padding-bottom: 0; 
+}
+ .jumbotron h1 {
+    color: white ; 
+    font-size: 80px ;
+ }
+ .lead {
+    font-weight: bold ; 
+    font-family: fantasy ; 
+    font-size: 30px ; 
+ }
 body {
-	background-color: #98eb92;
+    background-image: url("../images/train7.jpeg") ; 
+   background-size: 100% ;
+   max-width: 1920px;
+   max-height: 1080px ; 
+   
+  
 }
 th {
 	font-size: 20px;
 	text-align: center;
-	background-color: #96c8a2;
+    background-color: #5b5e5c;
+    
 }
 .panel-heading, h4 {
 	font-size: 30px;
 	text-align: center;
-	background-color: #ae9ddf !important;
+    background-color: #ae9ddf ; 
+    color: white ; 
+ 
 }
+
+
 td {
-	text-align: center;
+    text-align: center;
+    color: white ; 
 }
 label {
-	font-size: 16px;
+    font-size: 13px;
+    color: white ; 
+     
 }
-.jumbotron, #submitButton {
+ #submitButton {
 	background-color: #d9ebdd;
 }
 button {
-	font-size: 20px !important;
-	text-align: center !important;
+	font-size: 20px 
+	
 }
 button:hover {
-	background-color: #e5d9e0 !important;
-	text-transform: uppercase;
+	background-color: #e5d9e0 
+	/* text-transform: uppercase; */
+}
+/* .card-body{
+    background-color: grey ; 
+} */
+
+
+h6{
+    color: white ; 
+ 
+}
+td{
+    color: white ; 
+    
+}
+tr{
+    opacity: .3 ; 
+}
+tbody {
+    color: white ; 
+    
 }
