@@ -26,25 +26,31 @@ body {
 th {
 	font-size: 20px;
 	text-align: center;
-    background-color: #5b5e5c;
+    background-color: white;
+    color: black ; 
+    font-weight: bold ; 
     
 }
 .panel-heading, h4 {
 	font-size: 30px;
 	text-align: center;
-    background-color: #ae9ddf ; 
-    color: white ; 
+    background-color: #827f8b ; 
+    color: white; 
+    font-weight: bold ; 
+    opacity: .5 ; 
  
 }
 
 
 td {
     text-align: center;
-    color: white ; 
+    color: black; 
+    font-weight: bold ; 
 }
 label {
     font-size: 13px;
     color: white ; 
+    font-weight: bold ; 
      
 }
  #submitButton {
@@ -68,13 +74,19 @@ h6{
  
 }
 td{
-    color: white ; 
+    color: black; 
     
 }
 tr{
     opacity: .3 ; 
 }
 tbody {
+    background-color:  white; 
     color: white ; 
+    opacity: .8 ; 
     
+    
+}
+.card-transparent {
+    background: rgba(122, 130, 136, 0.2)!important;
 }
